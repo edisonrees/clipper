@@ -521,7 +521,7 @@ async function doDownload() {
 
     const cd = res.headers.get('content-disposition') || '';
     let filename = 'download';
-    const fnMatch = cd.match(/filename[^;=\\n]*=(['"]?)([^'"\\n]+)\1/);
+    const fnMatch = cd.match(new RegExp(`filename[^;=\\n]*=(['"]?)([^'"\\n]+)\\1`));
     if (fnMatch) filename = fnMatch[2];
     else {
       try { filename = decodeURIComponent(new URL(url).pathname.split('/').pop()) || 'download'; }
