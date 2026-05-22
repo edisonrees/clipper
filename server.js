@@ -601,13 +601,13 @@ function renderResults(results, query) {
     list.style.display = 'flex';
     return;
   }
-  list.innerHTML = results.map((r, i) => \`
-    <div class="result-card" onclick="loadResult('\${escAttr(r.url)}')">
-      <div class="result-title">\${escHtml(r.title)}</div>
-      <div class="result-url">\${escHtml(r.url)}</div>
-      <div class="result-snippet">\${escHtml(r.snippet)}</div>
-    </div>
-  \`).join('');
+list.innerHTML = results.map((r, i) => `
+  <div class="result-card" onclick="loadResult('${escAttr(r.url)}')">
+    <div class="result-title">${escHtml(r.title)}</div>
+    <div class="result-url">${escHtml(r.url)}</div>
+    <div class="result-snippet">${escHtml(r.snippet)}</div>
+  </div>
+`).join('');
   list.style.display = 'flex';
 }
 
